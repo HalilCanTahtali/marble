@@ -5,3 +5,5 @@ Mermerin kallitesini belirleyen faktörler arasında; renk, çatlak boyutları, 
 Gerekli olan teknolojiler renk ve damarlanma tespiti yapan algoritmadır. Bu tespit fotoğraf üzernden yapılacaktır.
 Sitede alıcı ve satıcı olarak iki farklı giriş bulunmaktadır. Alıcı kişi siteye girip satıcının profilindeki mermerlerin fotorğaflarını, bu mermerlerin içerisinde en çok bulunan üç rengi ve damarlanmalarının testip edildiği çıktıya ulaşabilecektir.
 Bu kısımda uzman görüşüne gerek yoktur. Çünkü renkler ve mermerin damarlanma yapısı öznel değildir.
+
+THS 2
