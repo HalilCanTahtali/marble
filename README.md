@@ -9,3 +9,10 @@ Bu kısımda uzman görüşüne gerek yoktur. Çünkü renkler ve mermerin damar
 
 THS 2
 ----------------
+Temel olarak yapılacka iş satıcıların sisteme mermer görselleri vermesi ve bu görsellerin renk ve damarlanma tespiti yapıldıktan sonra satış sitesine sunulmasıdır.
+
+THS 3
+---------------
+THS 2 de bahsedilen renk tespiti ve damarlanma tespiti üzerine çalışılmıştır. Renk tespiti yapılabilmektedir lakin her pikselin rengini alıp en yakın komşu algoritması ile en yoğun bulunan renk kodunun çıktısı verilmiştir. Algoritma görselde bulunan 3 farklı rengi ekrana vermektedir.
+Damarlanma yapısı için yapılan çalışma fotorğafın kontrast değerlerini değiştirip damarlanmaların ortaya çıkartılmasını hedeflemektedir.
+Renk tespiti başarı ile çalışmaktadır lakin damarlanma yapısının üzerinde hala çalışılmaktadır.
