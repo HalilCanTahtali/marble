@@ -1,0 +1,129 @@
+{% extends "base.html" %}
+{%load static%}
+    
+<!--Links--> 
+{% block css_file %}
+
+<link rel="stylesheet" href="{% static 'account/css/style.css' %}">
+
+{% endblock %}
+
+
+<!--Title--> 
+
+
+{%block title %}
+
+    login
+
+{%endblock%}
+
+<!--Body--> 
+{% block content %}
+
+<div class="login">
+		
+    <div class="containerlogin" id="containerlogin">
+        <div class="form-containerlogin sign-up-containerlogin">
+            <form action="{% url 'login_register' %}" method="POST">
+                {% csrf_token %}
+            {% if error %}
+            <div class="hata">
+                
+                {{error}}
+
+            </div>
+            {% endif %}
+
+                <h1>Hesap Oluştur</h1>
+                
+                <input type="text" placeholder="kullanıcı Adı" name="username" value="{{username}}"/>
+                <input type="text" placeholder="Adınız" name="firstname" id="" value="{{firstname}}">
+                <input type="text" placeholder="Soyadınız" name="lastname" id="" value="{{lastname}}">
+                <input type="email"placeholder="E-posta" name="email" id="" value="{{email}}">
+                <input type="password" placeholder="Şifre"  name="password" id="">
+                <input type="password" placeholder="Şifre Tekrarı" name="repassword" id="">
+                
+            
+                
+                <button name="kaydol">Kaydol </button>
+            </form>
+        </div>
+        <div class="form-containerlogin sign-in-containerlogin">
+            <form action="{% url 'login_register' %}" method="POST">
+
+            {% csrf_token %}
+            {% if error %}
+            <div class="hata">
+                {{error}}
+
+            </div>
+            {% endif %}
+                <h1 class="h1giris">Giriş Yap</h1>
+                
+                <input type="text" placeholder="Kullanıcı adı" name="username" />
+                <input type="password" placeholder="Şifre" name="password" />
+                
+                <button name="giris">Giriş Yap</button>
+                
+                
+                <a href="#" class="alink">Şifreni mi unuttun?</a>
+            </form>
+        </div>
+        <div class="image">
+            
+            </div>
+        <div class="overlay-containerlogin">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Tekrar Hoşgeldin</h1>
+                    <p>Hesap bilgilerini gir ve keşfetmeye başla!</p>
+                    <button class="ghost" id="signIn">Giriş Yap</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>Selamlar</h1>
+                    <p>Kişisel bilgilerinizi girin ve kaydolun!</p>
+                    <button class="ghost" id="signUp">Kaydol</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="scripts.js">
+    
+    </script>
+
+</div>
+
+{% endblock %}
+
+
+<!--JS tanımlama--> 
+
+{% block js_files %}
+
+<script href="{% static 'account/js/script.js' %}">
+
+    const signUpButton = document.getElementById('signUp');
+    const signInButton = document.getElementById('signIn');
+    const container = document.getElementById('containerlogin');
+
+    signUpButton.addEventListener('click', () => {
+	container.classList.add("right-panel-active");
+	document.getElementById("kaydol1").reset();
+	
+	
+});
+
+
+
+    signInButton.addEventListener('click', () => {
+	container.classList.remove("right-panel-active");
+	
+	
+});
+
+
+
+</script>
+
+{% endblock %}

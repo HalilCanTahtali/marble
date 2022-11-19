@@ -1,0 +1,14 @@
+{% load static %}
+
+
+<div class="card" style="width: 15rem; margin:2px; padding:10px">
+    <img class="card-img-top" src="{{ marble.image.url }}" alt="Card image cap">
+    <div class="card-body">
+        <h5 class="card-title">
+            <a href="{% url 'marble_details' marble.slug %}">
+                {{marble.title}}
+            </a>
+        </h5>
+      
+    </div>
+  </div>

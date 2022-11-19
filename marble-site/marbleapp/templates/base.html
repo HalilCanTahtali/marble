@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="jquery-3.6.0.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="{% static '/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static '/css/base.css' %}">
+    {% block js %}{% endblock js %}
+    {% block css_file %} {% endblock %}
+    <title>{%block title %}{%endblock%} | Marbleapp</title>
+    
+    <style>{%block style %} {% endblock%}</style>
+    
+</head>
+<body >
+    {%include 'partials/_navbar.html' %}
+   
+    <div style="min-height: 100vh">
+
+    {% block content %}{% endblock %}
+
+    </div>
+
+    <script src="{% static '/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static '/js/base.js' %}"></script>
+
+
+    {% block js_files %}
+
+    {% endblock %}
+
+</body>
+<footer style="background-color: #f1f1f1;">
+ 
+  <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+   
+    
+  </div>
+ 
+</footer>
+</html>

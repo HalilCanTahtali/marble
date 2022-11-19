@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{%load static%}
+
+{%block title %}
+
+marbles
+
+{%endblock%}
+
+{% block content %}
+
+
+
+
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-3">
+            {% include 'partials/_categories.html' %}
+        </div>
+        
+        <div class="col-9">
+            
+               
+            <h1>{{category_name}}</h1>
+                
+           
+            <hr>
+            <div class="row">
+                
+                    {% for marble in marbles %}
+                    {% if  marble.is_active %}
+                        {% include 'marble/partials/_marble.html' %} 
+                    {% endif %}
+                {% endfor %}
+                
+            </div>
+  
+        </div>
+        
+    </div>
+   </div>
+
+
+       
+{% endblock %}

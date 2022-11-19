@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{%block title %}
+
+    marble-details
+
+{%endblock%}
+{% block style %}
+h1{
+    margin-bottom:30px;
+}
+h2{
+    margin-top:30px;
+}
+
+{% endblock%}
+{% block js %}
+
+<script type="text/javascript" src=" https://www.gstatic.com/charts/loader.js">
+
+</script>
+<script type="text/javascript">
+ google.charts.load('current',{'packages':['corechart']});
+ google.charts.setOnLoadCallback(drawFunction);
+ function drawFunction(){
+
+     var data = google.visualization.arrayToDataTable([
+
+     ["",""],
+     ["{{marble.image_color.0.renk1}}",{{marble.image_color.0.yüzde1}}],
+     ["{{marble.image_color.0.renk2}}",{{marble.image_color.0.yüzde2}}],
+     ["{{marble.image_color.0.renk3}}",{{marble.image_color.0.yüzde3}}],
+     ["{{marble.image_color.0.renk4}}",{{marble.image_color.0.yüzde4}}],
+     ["{{marble.image_color.0.renk5}}",{{marble.image_color.0.yüzde5}}],
+
+
+
+
+     ]);
+     var options={legend: 'none',
+     chartArea:{width:"100%",height:"100%"},
+     colors: [
+        '{{marble.image_color.0.renk1}}',
+        '{{marble.image_color.0.renk2}}', 
+        '{{marble.image_color.0.renk3}}',
+        '{{marble.image_color.0.renk4}}',
+        '{{marble.image_color.0.renk5}}',
+    
+    ],is3D:true,};
+     var chart= new google.visualization.PieChart(document.getElementById('box'));
+     chart.draw(data,options);
+ }
+
+</script>
+
+{% endblock js %}
+
+{% block content %}
+
+
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-3">
+            {% include 'partials/_categories.html' %}
+        </div>
+        
+        <div class="col-9 p-3" style=" -webkit-box-shadow: 0px 0px 54px -35px rgba(0,0,0,0.63);
+        -moz-box-shadow: 0px 0px 54px -35px rgba(0,0,0,0.63);
+        box-shadow: 0px 0px 54px -35px rgba(0,0,0,0.63);">
+            
+           
+            <div class="row">
+                <div class="text-center">
+                    
+                    <div><h1> {{marble.title}}</h1></div>
+                    <div class="maincard" style="height:auto; width:  50%; margin: auto;">
+                        <img src="{{marble.image.url}}" style="width:  100%;"> 
+                       
+                            
+                        <div  style="height: 30px; width:  100%; background-color:red" >
+                            <div style="height: 100%; width: {{marble.image_color.0.yüzde1}}%; background-color:{{marble.image_color.0.renk1}}; float:left"></div>
+                            <div style="height: 100%; width: {{marble.image_color.0.yüzde2}}%; background-color:{{marble.image_color.0.renk2}}; float:left"></div>
+                            <div style="height: 100%; width: {{marble.image_color.0.yüzde3}}%; background-color:{{marble.image_color.0.renk3}}; float:left"></div>
+                            <div style="height: 100%; width: {{marble.image_color.0.yüzde4}}%; background-color:{{marble.image_color.0.renk4}}; float:left"></div>
+                            <div style="height: 100%; width: {{marble.image_color.0.yüzde5}}%; background-color:{{marble.image_color.0.renk5}}; float:left"></div>
+                        </div>  
+                        <h2>Renk Dağılım Grafiği</h2>
+                        <div id="box" style="height:700px;width:100%;"></div>
+
+                        <div><h2>{{marble.description|safe }}</h2></div>
+                        <img src="{{marble.image.url}}" style="width:  100%;">   
+                       
+                        
+                    </div>
+                    
+                   
+                    
+                    
+                        
+                    
+                </div>
+                   
+                
+            </div>
+  
+        </div>
+        
+    </div>
+</div>
+
+  
+    
+{% endblock %}
+
+ 

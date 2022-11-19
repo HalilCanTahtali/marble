@@ -1,0 +1,33 @@
+{% load static %}
+
+<nav class="navbar navbar-dark bg-secondary navbar-expand-lg" style="align-items">
+    <div class="container">
+        <ul class="navbar-nav me-auto">
+            <li class="nav-item"  >
+       <a class="navbar-brand " href="{% url 'home' %}"><img src="{% static '/img/logo.png' %}" style="vertical-align: middle; height:60px; margin-right:3px" alt=""></a>
+            </li>
+           <li class="nav-item"  >
+               <a href="{% url 'home' %}" style="margin:4px 3px 0 0" class="nav-link">Anasayfa</a>
+           </li>
+           <li class="nav-item" >
+               <a href="{% url 'marbles' %}" style="margin:4px 3px 0 0" class="nav-link">Tüm Mermerler</a>
+           </li>
+       </ul>
+       <ul class="navbar-nav ms-auto">
+        {% if user.is_authenticated %}
+        <li class="nav-item">
+            <a href="" class="nav-link">Hoşgeldin, {{user.get_full_name|title}}</a>
+        </li>
+        <li class="nav-item">
+            <a href="{% url 'logout' %}" class="nav-link">Çıkış</a>
+        </li>
+       {% else %}
+        <li class="nav-item">
+            <a href="{% url 'login_register' %}" class="nav-link" style="margin:4px 3px 0 0">Giriş Yap / Kaydol</a>
+        </li>
+        
+        {% endif %}
+        
+    </ul>
+    </div>
+      </nav>

@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{%load static%}
+    
+<!--Links--> 
+{% block css_file %}
+
+<link rel="stylesheet" href="{% static 'marble/css/style.css' %}">
+
+{% endblock %}
+
+
+<!--Title--> 
+
+
+{%block title %}
+
+    Homepage
+
+{%endblock%}
+
+<!--Body--> 
+{% block content %}
+
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-3">
+            {% include 'partials/_categories.html' %}
+        </div>
+        
+        <div class="col-9 p-3">
+            <h1>
+                Ana Sayfa
+            </h1>
+            <hr>
+            <div class="row">
+                
+                    {% for marble in marbles %}
+                    {% if marble.is_home and marble.is_active %}
+                        {% include 'marble/partials/_marble.html' %} 
+                    {% endif %}
+                {% endfor %}
+                
+            </div>
+  
+        </div>
+        
+    </div>
+</div>
+
+
+{% endblock %}
+
+
+<!--JS tanımlama--> 
+
+{% block js_files %}
+<script href="{% static '/marble/js/script.js' %}"></script>
+{% endblock %}
